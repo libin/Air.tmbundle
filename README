@@ -1,0 +1,6 @@
+# TextMate Bundle for Adobe Air Development
+
+To install with Git:
+
+  cd ~/Library/Application\ Support/TextMate/Bundles
+  git clone git@github.com:libin/Air.tmbundle.git
