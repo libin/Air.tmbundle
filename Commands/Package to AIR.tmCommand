@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>app_xml_name="$TM_FILENAME"
+package_name=${app_xml_name%-app.xml}
+
+adt -package -storetype pkcs12 -keystore "$AIR_CERT_FILE" -storepass "$AIR_CERT_PASS" $package_name".air" $package_name"-app.xml" $package_name".swf"
+
+echo $package_name".air was created!"
+
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@</string>
+	<key>name</key>
+	<string>Package to AIR</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>text.xml</string>
+	<key>uuid</key>
+	<string>DC4054A1-1F42-48A1-B04A-DA34AF0369B3</string>
+</dict>
+</plist>
