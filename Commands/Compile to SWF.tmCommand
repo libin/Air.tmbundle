@@ -5,11 +5,17 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>amxmlc "$TM_FILEPATH"</string>
+	<string>#!/usr/bin/env ruby
+libraries = []
+Dir.entries("libs").each{|f| libraries &lt;&lt; "libs/#{f}" if f[/\.swc/]} if File.directory?("libs")
+libraries = libraries.size > 0 ? "-library-path+=#{libraries.join(',')}" : ''
+`amxmlc #{libraries} #{ENV['TM_FILEPATH']}`
+</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
-	<string>@</string>
+	<string>@
+</string>
 	<key>name</key>
 	<string>Compile to SWF</string>
 	<key>output</key>
